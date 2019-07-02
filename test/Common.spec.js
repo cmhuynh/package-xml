@@ -52,6 +52,13 @@ describe('Generate a package XML', function () {
     })
     })
 
+    it('should get Platform Event Channels', function () {
+        return getDirectoryContentsPromise.then(files => {
+            var members = getMembers('PlatformEventChannel', files, metadata, true)
+            expect(members).to.contain('ChangeEvents')
+        })
+    })
+    
     it('should get Custom Apex Classes', function () {
         return getDirectoryContentsPromise.then(files => {
             var members = getMembers('ApexClass', files, metadata, true)
